@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free 90GB Data</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .green-banner {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .reaction-section {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .social-actions {
+            display: flex;
+            justify-content: space-evenly;
+            padding: 10px;
+            font-size: 16px;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            margin-top: 10px;
+        }
+
+        .comment-section {
+            padding: 10px;
+        }
+
+        .comment {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .profile-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .comment-content {
+            background-color: #f0f2f5;
+            padding: 8px;
+            border-radius: 8px;
+            width: fit-content;
+        }
+
+        .comment-time {
+            font-size: 12px;
+            color: gray;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .comment-input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Top Section -->
+        <img src="your-image-url.jpeg" alt="Promo Image" width="100%">
+        <hr class="green-hr">
+        
+        <!-- Green Banner -->
+        <div class="green-banner">
+            #Ramadan Special : 90GB Free Data for everyone!
+        </div>
+
+        <hr>
+
+        <!-- Middle Section -->
+        <h1>FREE 90GB DATA PLAN FOR ALL NETWORKS.</h1>
+        <button id="startButton" class="motion-button">Click Here</button>
+        <hr>
+
+        <!-- Like, Comment, Share Section -->
+        <div class="reaction-section">
+            <span id="likeCount">❤️ 319</span> 
+            <span id="commentCount">💬 508</span>
+            <span>🔄 Share</span>
+        </div>
+
+        <!-- Like and Comment Actions -->
+        <div class="social-actions">
+            <span>👍 Like</span>
+            <span>💬 Comment</span>
+        </div>
+
+        <!-- Bottom Comments Section -->
+        <div class="comment-section">
+            <div class="comment">
+                <img src="profile1.jpg" class="profile-pic">
+                <div class="comment-content">
+                    <strong>John Doe</strong>
+                    <p>This is amazing!</p>
+                    <span class="comment-time">31m • Like • Reply</span>
+                </div>
+            </div>
+            <div class="comment">
+                <img src="profile2.jpg" class="profile-pic">
+                <div class="comment-content">
+                    <strong>Jane Smith</strong>
+                    <p>Does this work for all networks?</p>
+                    <span class="comment-time">1h • Like • Reply</span>
+                </div>
+            </div>
+            <div class="comment">
+                <img src="profile3.jpg" class="profile-pic">
+                <div class="comment-content">
+                    <strong>Michael Lee</strong>
+                    <p>Wow, got my 90GB. Thanks!</p>
+                    <span class="comment-time">30m • Like • Reply</span>
+                </div>
+            </div>
+            <div class="comment">
+                <img src="profile4.jpg" class="profile-pic">
+                <div class="comment-content">
+                    <strong>Sarah Wilson</strong>
+                    <p>How long is this offer valid?</p>
+                    <span class="comment-time">15m • Like • Reply</span>
+                </div>
+            </div>
+            <input type="text" class="comment-input" placeholder="Write a comment...">
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('startButton').addEventListener('click', function() {
+            window.location.href = 'page2.html';
+        });
+
+        function increaseCount(elementId, start, end, speed) {
+            let count = start;
+            let interval = setInterval(() => {
+                if (count >= end) clearInterval(interval);
+                document.getElementById(elementId).textContent = count;
+                count++;
+            }, speed);
+        }
+        increaseCount('likeCount', 319, 500, 3000);
+        increaseCount('commentCount', 508, 700, 5000);
+    </script>
+</body>
+</html>

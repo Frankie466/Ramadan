@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .middle-section {
+            text-align: center;
+            margin: 50px auto;
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+        .progress-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .progress {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 8px solid #ffa500; 
+            border-top-color: #4CAF50;
+            animation: spin 10s linear forwards;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .percentage {
+            position: absolute;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .completed-section {
+            display: none;
+            text-align: center;
+        }
+        .check-mark {
+            font-size: 40px;
+            color: #4CAF50;
+        }
+        .phone-input {
+            margin-top: 10px;
+            padding: 10px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .send-btn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .validation-section {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .validation-ring {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 6px solid #ffa500;
+            border-top: 6px solid #4CAF50;
+            animation: fast-spin 1s linear infinite;
+            margin: auto;
+        }
+        @keyframes fast-spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .validation-text {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="your-image-url.jpeg" alt="Promo Image" width="100%">
+        <hr class="green-hr">
+        
+        <!-- Green Banner -->
+        <div class="green-banner">
+            #Ramadan Special : 90GB Free Data for everyone!
+        </div>
+        <hr>
+
+        <!-- Middle Section -->
+        <div class="middle-section" id="middleSection">
+            <div class="progress-container" id="progressContainer">
+                <div class="progress" id="progress"></div>
+                <span class="percentage" id="percentage">0%</span>
+            </div>
+            <div class="completed-section" id="completedSection">
+                <span class="check-mark">✔</span>
+                <p id="thanksMessage">Thanks, we are already checked</p>
+                <input type="text" class="phone-input" id="phoneInput" placeholder="Enter your phone number">
+                <button class="send-btn" id="sendBtn">Send</button>
+            </div>
+        </div>
+
+        <div class="validation-section" id="validationSection">
+            <div class="validation-ring"></div>
+            <p class="validation-text">Wait, we are validating data</p>
+        </div>
+
+        <hr>
+        <!-- Like, Comment, Share Section -->
+        <div class="reaction-section">
+            <span id="likeCount">❤️ 319</span> 
+            <span id="commentCount">💬 508</span>
+            <span>🔄 Share</span>
+        </div>
+        <div class="social-actions">
+            <span>👍 Like</span>
+            <span>💬 Comment</span>
+        </div>
+        <div class="comment-section">
+            <div class="comment">
+                <img src="profile1.jpg" class="profile-pic">
+                <div class="comment-content">
+                    <strong>John Doe</strong>
+                    <p>This is amazing!</p>
+                    <span class="comment-time">31m • Like • Reply</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let percentage = 0;
+        let interval = setInterval(() => {
+            if (percentage >= 100) {
+                clearInterval(interval);
+                document.getElementById("progressContainer").style.display = "none";
+                document.getElementById("completedSection").style.display = "block";
+                setTimeout(() => {
+                    document.getElementById("thanksMessage").style.display = "none";
+                    document.getElementById("phoneInput").style.display = "block";
+                    document.getElementById("sendBtn").style.display = "block";
+                }, 10000);
+            } else {
+                percentage++;
+                document.getElementById("percentage").textContent = percentage + "%";
+            }
+        }, 100);
+
+        document.getElementById("sendBtn").addEventListener("click", function() {
+            let phoneNumber = document.getElementById("phoneInput").value;
+            if (/^\d{10}$/.test(phoneNumber)) {
+                document.getElementById("completedSection").style.display = "none";
+                document.getElementById("validationSection").style.display = "block";
+                
+                setTimeout(() => {
+                    document.getElementById("validationSection").style.display = "none";
+                    alert("Phone number validated successfully!");
+                    window.location.href = "page3.html"; // Redirects to Page 3
+                }, 7000);
+            } else {
+                alert("Please enter a valid 10-digit phone number.");
+            }
+        });
+    </script>
+</body>
+</html>
