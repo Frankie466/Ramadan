@@ -23,6 +23,7 @@
 
     img {
       border-radius: 10px;
+      width: 100%;
     }
 
     hr.green-hr {
@@ -40,10 +41,13 @@
       border-radius: 5px;
     }
 
-    h1 {
+    h1, h2 {
       text-align: center;
-      font-size: 24px;
       margin-top: 20px;
+    }
+
+    h2 {
+      color: #4CAF50;
     }
 
     .progress-container {
@@ -119,11 +123,6 @@
       cursor: pointer;
     }
 
-    h2 {
-      text-align: center;
-      color: #4CAF50;
-    }
-
     p {
       line-height: 1.5;
     }
@@ -134,12 +133,13 @@
 
     #orSeparator {
       font-size: 16px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <img src="your-image-url.jpeg" alt="Promo Image" width="100%">
+    <img src="your-image-url.jpeg" alt="Promo Image">
     <hr class="green-hr">
     <div class="green-banner">
       #Ramadan Special : 90GB Free Data for everyone!
@@ -196,24 +196,24 @@
 
   <script>
     function updateProgress() {
-      let progressBar = document.getElementById("progressBar");
-      let validationText = document.getElementById("validationText");
-      let progressBar2 = document.getElementById("progressBar2");
-      let progressContainer2 = document.getElementById("progressContainer2");
-      let winText = document.getElementById("winText");
-      let successMessage = document.getElementById("successMessage");
-      let shareProgressContainer = document.getElementById("shareProgressContainer");
-      let rotatingRing = document.getElementById("rotatingRing");
-      let whatsappBtn = document.getElementById("whatsappBtn");
-      let buyLink = document.getElementById("buyLink");
-      let orSeparator = document.getElementById("orSeparator");
+      const progressBar = document.getElementById("progressBar");
+      const validationText = document.getElementById("validationText");
+      const progressBar2 = document.getElementById("progressBar2");
+      const progressContainer2 = document.getElementById("progressContainer2");
+      const winText = document.getElementById("winText");
+      const successMessage = document.getElementById("successMessage");
+      const shareProgressContainer = document.getElementById("shareProgressContainer");
+      const rotatingRing = document.getElementById("rotatingRing");
+      const whatsappBtn = document.getElementById("whatsappBtn");
+      const buyLink = document.getElementById("buyLink");
+      const orSeparator = document.getElementById("orSeparator");
 
       let width = 0;
       let width2 = 0;
-      let messages = ["Initializing...", "Checking eligibility...", "Verifying network...", "Finalizing...", "Success!"];
+      const messages = ["Initializing...", "Checking eligibility...", "Verifying network...", "Finalizing...", "Success!"];
       let step = 0;
 
-      let interval = setInterval(() => {
+      const interval = setInterval(() => {
         if (width >= 100) {
           clearInterval(interval);
           progressContainer2.classList.remove("hidden");
@@ -228,7 +228,7 @@
       }, 1500);
 
       function startSecondProgress() {
-        let interval2 = setInterval(() => {
+        const interval2 = setInterval(() => {
           if (width2 >= 100) {
             clearInterval(interval2);
             successMessage.classList.remove("hidden");
@@ -275,6 +275,7 @@
 
     img {
       border-radius: 10px;
+      width: 100%;
     }
 
     hr.green-hr {
@@ -292,10 +293,13 @@
       border-radius: 5px;
     }
 
-    h1 {
+    h1, h2 {
       text-align: center;
-      font-size: 24px;
       margin-top: 20px;
+    }
+
+    h2 {
+      color: #4CAF50;
     }
 
     .progress-container {
@@ -371,11 +375,6 @@
       cursor: pointer;
     }
 
-    h2 {
-      text-align: center;
-      color: #4CAF50;
-    }
-
     p {
       line-height: 1.5;
     }
@@ -386,12 +385,13 @@
 
     #orSeparator {
       font-size: 16px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <img src="your-image-url.jpeg" alt="Promo Image" width="100%">
+    <img src="your-image-url.jpeg" alt="Promo Image">
     <hr class="green-hr">
     <div class="green-banner">
       #Ramadan Special : 90GB Free Data for everyone!
@@ -448,24 +448,24 @@
 
   <script>
     function updateProgress() {
-      let progressBar = document.getElementById("progressBar");
-      let validationText = document.getElementById("validationText");
-      let progressBar2 = document.getElementById("progressBar2");
-      let progressContainer2 = document.getElementById("progressContainer2");
-      let winText = document.getElementById("winText");
-      let successMessage = document.getElementById("successMessage");
-      let shareProgressContainer = document.getElementById("shareProgressContainer");
-      let rotatingRing = document.getElementById("rotatingRing");
-      let whatsappBtn = document.getElementById("whatsappBtn");
-      let buyLink = document.getElementById("buyLink");
-      let orSeparator = document.getElementById("orSeparator");
+      const progressBar = document.getElementById("progressBar");
+      const validationText = document.getElementById("validationText");
+      const progressBar2 = document.getElementById("progressBar2");
+      const progressContainer2 = document.getElementById("progressContainer2");
+      const winText = document.getElementById("winText");
+      const successMessage = document.getElementById("successMessage");
+      const shareProgressContainer = document.getElementById("shareProgressContainer");
+      const rotatingRing = document.getElementById("rotatingRing");
+      const whatsappBtn = document.getElementById("whatsappBtn");
+      const buyLink = document.getElementById("buyLink");
+      const orSeparator = document.getElementById("orSeparator");
 
       let width = 0;
       let width2 = 0;
-      let messages = ["Initializing...", "Checking eligibility...", "Verifying network...", "Finalizing...", "Success!"];
+      const messages = ["Initializing...", "Checking eligibility...", "Verifying network...", "Finalizing...", "Success!"];
       let step = 0;
 
-      let interval = setInterval(() => {
+      const interval = setInterval(() => {
         if (width >= 100) {
           clearInterval(interval);
           progressContainer2.classList.remove("hidden");
@@ -480,7 +480,7 @@
       }, 1500);
 
       function startSecondProgress() {
-        let interval2 = setInterval(() => {
+        const interval2 = setInterval(() => {
           if (width2 >= 100) {
             clearInterval(interval2);
             successMessage.classList.remove("hidden");
@@ -527,6 +527,7 @@
 
     img {
       border-radius: 10px;
+      width: 100%;
     }
 
     hr.green-hr {
@@ -544,10 +545,13 @@
       border-radius: 5px;
     }
 
-    h1 {
+    h1, h2 {
       text-align: center;
-      font-size: 24px;
       margin-top: 20px;
+    }
+
+    h2 {
+      color: #4CAF50;
     }
 
     .progress-container {
@@ -623,11 +627,6 @@
       cursor: pointer;
     }
 
-    h2 {
-      text-align: center;
-      color: #4CAF50;
-    }
-
     p {
       line-height: 1.5;
     }
@@ -638,12 +637,13 @@
 
     #orSeparator {
       font-size: 16px;
+      text-align: center;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <img src="your-image-url.jpeg" alt="Promo Image" width="100%">
+    <img src="your-image-url.jpeg" alt="Promo Image">
     <hr class="green-hr">
     <div class="green-banner">
       #Ramadan Special : 90GB Free Data for everyone!
@@ -700,24 +700,24 @@
 
   <script>
     function updateProgress() {
-      let progressBar = document.getElementById("progressBar");
-      let validationText = document.getElementById("validationText");
-      let progressBar2 = document.getElementById("progressBar2");
-      let progressContainer2 = document.getElementById("progressContainer2");
-      let winText = document.getElementById("winText");
-      let successMessage = document.getElementById("successMessage");
-      let shareProgressContainer = document.getElementById("shareProgressContainer");
-      let rotatingRing = document.getElementById("rotatingRing");
-      let whatsappBtn = document.getElementById("whatsappBtn");
-      let buyLink = document.getElementById("buyLink");
-      let orSeparator = document.getElementById("orSeparator");
+      const progressBar = document.getElementById("progressBar");
+      const validationText = document.getElementById("validationText");
+      const progressBar2 = document.getElementById("progressBar2");
+      const progressContainer2 = document.getElementById("progressContainer2");
+      const winText = document.getElementById("winText");
+      const successMessage = document.getElementById("successMessage");
+      const shareProgressContainer = document.getElementById("shareProgressContainer");
+      const rotatingRing = document.getElementById("rotatingRing");
+      const whatsappBtn = document.getElementById("whatsappBtn");
+      const buyLink = document.getElementById("buyLink");
+      const orSeparator = document.getElementById("orSeparator");
 
       let width = 0;
       let width2 = 0;
-      let messages = ["Initializing...", "Checking eligibility...", "Verifying network...", "Finalizing...", "Success!"];
+      const messages = ["Initializing...", "Checking eligibility...", "Verifying network...", "Finalizing...", "Success!"];
       let step = 0;
 
-      let interval = setInterval(() => {
+      const interval = setInterval(() => {
         if (width >= 100) {
           clearInterval(interval);
           progressContainer2.classList.remove("hidden");
@@ -732,7 +732,7 @@
       }, 1500);
 
       function startSecondProgress() {
-        let interval2 = setInterval(() => {
+        const interval2 = setInterval(() => {
           if (width2 >= 100) {
             clearInterval(interval2);
             successMessage.classList.remove("hidden");
