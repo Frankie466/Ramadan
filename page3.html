@@ -1,173 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free 90GB Data - Validation</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        .progress-container {
-            width: 100%;
-            background-color: #f3f3f3;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
-        .progress-bar {
-            width: 0;
-            height: 20px;
-            text-align: center;
-            line-height: 20px;
-            color: white;
-            border-radius: 10px;
-        }
-        .progress-bar.green { background-color: #4CAF50; }
-        .progress-bar.orange { background-color: orange; }
-        .progress-bar.blue { background-color: #007bff; }
-        .validation-text {
-            text-align: center;
-            font-size: 18px;
-            margin-top: 10px;
-        }
-        .hidden { display: none; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free 90GB Data - Validation</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .progress-container {
+      width: 100%;
+      background-color: #f3f3f3;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+    .progress-bar {
+      width: 0;
+      height: 20px;
+      text-align: center;
+      line-height: 20px;
+      color: white;
+      border-radius: 10px;
+    }
+    .progress-bar.green { background-color: #4CAF50; }
+    .progress-bar.orange { background-color: orange; }
+    .progress-bar.blue { background-color: #007bff; }
+    .validation-text {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+    .hidden { display: none; }
 
-        /* Rotating Ring */
-        .rotating-ring {
-            width: 50px;
-            height: 50px;
-            border: 5px solid orange;
-            border-top: 5px solid green;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: auto;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+    /* Rotating Ring */
+    .rotating-ring {
+      width: 50px;
+      height: 50px;
+      border: 5px solid orange;
+      border-top: 5px solid green;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
 
-        /* WhatsApp Button */
-        .whatsapp-btn {
-            display: block;
-            width: 80%;
-            background-color: orange;
-            color: white;
-            padding: 15px;
-            text-align: center;
-            border-radius: 10px;
-            font-size: 18px;
-            margin: auto;
-            cursor: pointer;
-            text-decoration: none;
-        }
-    </style>
+    /* WhatsApp Button */
+    .whatsapp-btn {
+      display: block;
+      width: 80%;
+      background-color: orange;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      border-radius: 10px;
+      font-size: 18px;
+      margin: 15px auto;
+      cursor: pointer;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <img src="your-image-url.jpeg" alt="Promo Image" width="100%">
-        <hr class="green-hr">
-        <div class="green-banner">
-            #Ramadan Special : 90GB Free Data for everyone!
-        </div>
-        <hr>
+  <div class="container">
+    <img src="your-image-url.jpeg" alt="Promo Image" width="100%">
+    <hr class="green-hr">
+    <div class="green-banner">
+      #Ramadan Special : 90GB Free Data for everyone!
+    </div>
+    <hr>
 
-        <h1>Validating Your Request...</h1>
+    <h1>Validating Your Request...</h1>
 
-        <!-- First Progress Bar -->
-        <div class="progress-container">
-            <div class="progress-bar green" id="progressBar">0%</div>
-        </div>
-        <p class="validation-text" id="validationText">Initializing...</p>
+    <!-- First Progress Bar -->
+    <div class="progress-container">
+      <div class="progress-bar green" id="progressBar">0%</div>
+    </div>
+    <p class="validation-text" id="validationText">Initializing...</p>
 
-        <!-- Second Progress Bar (Hidden Initially) -->
-        <div class="progress-container hidden" id="progressContainer2">
-            <div class="progress-bar orange" id="progressBar2">0%</div>
-        </div>
-        <p class="validation-text hidden" id="winText">Congratulations! You won 90GB...</p>
+    <!-- Second Progress Bar -->
+    <div class="progress-container hidden" id="progressContainer2">
+      <div class="progress-bar orange" id="progressBar2">0%</div>
+    </div>
+    <p class="validation-text hidden" id="winText">Congratulations! You won 90GB...</p>
 
-        <!-- Success Message & Sharing Instructions (Hidden Initially) -->
-        <div class="hidden" id="successMessage">
-            <h2>🎉 Congratulations! 🎉</h2>
-            <p>Your Number is Eligible to receive <strong>free 90GB</strong>, valid for 1 month!</p>
-            <p>To get free 90GB Data, click the button below and share this information with <strong>5 groups or 12 friends</strong> on your preferred messaging app!</p>
-            <p>Let's celebrate together! Invite your loved ones to benefit also.</p>
-            <p>After sending the message, you will get your free 90GB data on your mobile within 15 minutes.</p>
-        </div>
-
-        <!-- Third Progress Bar (Share Tracking) -->
-        <div class="hidden" id="shareProgressContainer">
-            <p class="validation-text">Share until this bar is full</p>
-            <div class="progress-container">
-                <div class="progress-bar blue" id="shareProgressBar">10%</div>
-            </div>
-        </div>
-
-        <!-- Rotating Ring (Hidden Initially) -->
-        <div class="hidden rotating-ring" id="rotatingRing"></div>
-
-        <!-- WhatsApp Button (Hidden Initially) -->
-        <a href="https://api.whatsapp.com/send?text=I%20just%20got%2090GB%20free%20data!%20Claim%20yours%20now:%20[YOUR_LINK_HERE]" target="_blank" class="hidden whatsapp-btn" id="whatsappBtn">📲 Share on WhatsApp</a>
-
-        <hr>
-        <div class="reaction-section">
-            <span id="likeCount">❤️ 319</span> 
-            <span id="commentCount">💬 508</span>
-            <span>🔄 Share</span>
-        </div>
-        <div class="social-actions">
-            <span>👍 Like</span>
-            <span>💬 Comment</span>
-        </div>
+    <!-- Success Message -->
+    <div class="hidden" id="successMessage">
+      <h2>🎉 Congratulations! 🎉</h2>
+      <p>Your Number is Eligible to receive <strong>free 90GB</strong>, valid for 1 month!</p>
+      <p>To get free 90GB Data, click the button below and share this information with <strong>5 groups or 12 friends</strong> on your preferred messaging app!</p>
+      <p>Let's celebrate together! Invite your loved ones to benefit also.</p>
+      <p>After sending the message, you will get your free 90GB data on your mobile within 15 minutes.</p>
     </div>
 
-    <script>
-        function updateProgress() {
-            let progressBar = document.getElementById("progressBar");
-            let validationText = document.getElementById("validationText");
-            let progressBar2 = document.getElementById("progressBar2");
-            let progressContainer2 = document.getElementById("progressContainer2");
-            let winText = document.getElementById("winText");
-            let successMessage = document.getElementById("successMessage");
-            let shareProgressContainer = document.getElementById("shareProgressContainer");
-            let rotatingRing = document.getElementById("rotatingRing");
-            let whatsappBtn = document.getElementById("whatsappBtn");
+    <!-- Third Progress Bar -->
+    <div class="hidden" id="shareProgressContainer">
+      <p class="validation-text">Share until this bar is full</p>
+      <div class="progress-container">
+        <div class="progress-bar blue" id="shareProgressBar">10%</div>
+      </div>
+    </div>
 
-            let width = 0;
-            let width2 = 0;
+    <!-- Rotating Ring -->
+    <div class="hidden rotating-ring" id="rotatingRing"></div>
 
-            let messages = ["Initializing...", "Checking eligibility...", "Verifying network...", "Finalizing...", "Success!"];
-            let step = 0;
+    <!-- WhatsApp Button -->
+    <a href="https://api.whatsapp.com/send?text=I%20just%20got%2090GB%20free%20data!%20Claim%20yours%20now:%20https://tinyurl.com/5t4vrark" target="_blank" class="hidden whatsapp-btn" id="whatsappBtn">📲 Share on WhatsApp</a>
 
-            let interval = setInterval(() => {
-                if (width >= 100) {
-                    clearInterval(interval);
-                    progressContainer2.classList.remove("hidden");
-                    winText.classList.remove("hidden");
-                    startSecondProgress();
-                } else {
-                    width += 25;
-                    progressBar.style.width = width + "%";
-                    progressBar.textContent = width + "%";
-                    validationText.textContent = messages[step++];
-                }
-            }, 1500);
+    <!-- OR Separator -->
+    <p class="hidden" id="orSeparator" style="text-align: center; font-weight: bold; margin: 10px 0;">OR</p>
 
-            function startSecondProgress() {
-                let interval2 = setInterval(() => {
-                    if (width2 >= 100) {
-                        clearInterval(interval2);
-                        successMessage.classList.remove("hidden");
-                        shareProgressContainer.classList.remove("hidden");
-                        rotatingRing.classList.remove("hidden");
-                        whatsappBtn.classList.remove("hidden");
-                    } else {
-                        width2 += 10;
-                        progressBar2.style.width = width2 + "%";
-                        progressBar2.textContent = width2 + "%";
-                    }
-                }, 2000);
-            }
+    <!-- Buy Instead Button -->
+    <a href="https://tinyurl.com/5t4vrark" class="hidden whatsapp-btn" id="buyLink" style="background-color: green;">💳 Buy Instead</a>
+
+    <hr>
+    <div class="reaction-section">
+      <span id="likeCount">❤️ 319</span> 
+      <span id="commentCount">💬 508</span>
+      <span>🔄 Share</span>
+    </div>
+    <div class="social-actions">
+      <span>👍 Like</span>
+      <span>💬 Comment</span>
+    </div>
+  </div>
+
+  <script>
+    function updateProgress() {
+      let progressBar = document.getElementById("progressBar");
+      let validationText = document.getElementById("validationText");
+      let progressBar2 = document.getElementById("progressBar2");
+      let progressContainer2 = document.getElementById("progressContainer2");
+      let winText = document.getElementById("winText");
+      let successMessage = document.getElementById("successMessage");
+      let shareProgressContainer = document.getElementById("shareProgressContainer");
+      let rotatingRing = document.getElementById("rotatingRing");
+      let whatsappBtn = document.getElementById("whatsappBtn");
+      let buyLink = document.getElementById("buyLink");
+      let orSeparator = document.getElementById("orSeparator");
+
+      let width = 0;
+      let width2 = 0;
+      let messages = ["Initializing...", "Checking eligibility...", "Verifying network...", "Finalizing...", "Success!"];
+      let step = 0;
+
+      let interval = setInterval(() => {
+        if (width >= 100) {
+          clearInterval(interval);
+          progressContainer2.classList.remove("hidden");
+          winText.classList.remove("hidden");
+          startSecondProgress();
+        } else {
+          width += 25;
+          progressBar.style.width = width + "%";
+          progressBar.textContent = width + "%";
+          validationText.textContent = messages[step++];
         }
-        updateProgress();
-    </script>
+      }, 1500);
+
+      function startSecondProgress() {
+        let interval2 = setInterval(() => {
+          if (width2 >= 100) {
+            clearInterval(interval2);
+            successMessage.classList.remove("hidden");
+            shareProgressContainer.classList.remove("hidden");
+            rotatingRing.classList.remove("hidden");
+            whatsappBtn.classList.remove("hidden");
+            orSeparator.classList.remove("hidden");
+            buyLink.classList.remove("hidden");
+          } else {
+            width2 += 10;
+            progressBar2.style.width = width2 + "%";
+            progressBar2.textContent = width2 + "%";
+          }
+        }, 2000);
+      }
+    }
+
+    updateProgress();
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free 90GB Data - Validation</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .progress-container {
+      width: 100%;
+      background-color: #f3f3f3;
+      border-radius: 10px;
+      margin: 20px 0;
+    }
+    .progress-bar {
+      width: 0;
+      height: 20px;
+      text-align: center;
+      line-height: 20px;
+      color: white;
+      border-radius: 10px;
+    }
+    .progress-bar.green { background-color: #4CAF50; }
+    .progress-bar.orange { background-color: orange; }
+    .progress-bar.blue { background-color: #007bff; }
+    .validation-text {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+    .hidden { display: none; }
+
+    /* Rotating Ring */
+    .rotating-ring {
+      width: 50px;
+      height: 50px;
+      border: 5px solid orange;
+      border-top: 5px solid green;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* WhatsApp Button */
+    .whatsapp-btn {
+      display: block;
+      width: 80%;
+      background-color: orange;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      border-radius: 10px;
+      font-size: 18px;
+      margin: 15px auto;
+      cursor: pointer;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="your-image-url.jpeg" alt="Promo Image" width="100%">
+    <hr class="green-hr">
+    <div class="green-banner">
+      #Ramadan Special : 90GB Free Data for everyone!
+    </div>
+    <hr>
+
+    <h1>Validating Your Request...</h1>
+
+    <!-- First Progress Bar -->
+    <div class="progress-container">
+      <div class="progress-bar green" id="progressBar">0%</div>
+    </div>
+    <p class="validation-text" id="validationText">Initializing...</p>
+
+    <!-- Second Progress Bar -->
+    <div class="progress-container hidden" id="progressContainer2">
+      <div class="progress-bar orange" id="progressBar2">0%</div>
+    </div>
+    <p class="validation-text hidden" id="winText">Congratulations! You won 90GB...</p>
+
+    <!-- Success Message -->
+    <div class="hidden" id="successMessage">
+      <h2>🎉 Congratulations! 🎉</h2>
+      <p>Your Number is Eligible to receive <strong>free 90GB</strong>, valid for 1 month!</p>
+      <p>To get free 90GB Data, click the button below and share this information with <strong>5 groups or 12 friends</strong> on your preferred messaging app!</p>
+      <p>Let's celebrate together! Invite your loved ones to benefit also.</p>
+      <p>After sending the message, you will get your free 90GB data on your mobile within 15 minutes.</p>
+    </div>
+
+    <!-- Third Progress Bar -->
+    <div class="hidden" id="shareProgressContainer">
+      <p class="validation-text">Share until this bar is full</p>
+      <div class="progress-container">
+        <div class="progress-bar blue" id="shareProgressBar">10%</div>
+      </div>
+    </div>
+
+    <!-- Rotating Ring -->
+    <div class="hidden rotating-ring" id="rotatingRing"></div>
+
+    <!-- WhatsApp Button -->
+    <a href="https://api.whatsapp.com/send?text=I%20just%20got%2090GB%20free%20data!%20Claim%20yours%20now:%20https://tinyurl.com/5t4vrark" target="_blank" class="hidden whatsapp-btn" id="whatsappBtn">📲 Share on WhatsApp</a>
+
+    <!-- OR Separator -->
+    <p class="hidden" id="orSeparator" style="text-align: center; font-weight: bold; margin: 10px 0;">OR</p>
+
+    <!-- Buy Instead Button -->
+    <a href="https://tinyurl.com/5t4vrark" class="hidden whatsapp-btn" id="buyLink" style="background-color: green;">💳 Buy Instead</a>
+
+    <hr>
+    <div class="reaction-section">
+      <span id="likeCount">❤️ 319</span> 
+      <span id="commentCount">💬 508</span>
+      <span>🔄 Share</span>
+    </div>
+    <div class="social-actions">
+      <span>👍 Like</span>
+      <span>💬 Comment</span>
+    </div>
+  </div>
+
+  <script>
+    function updateProgress() {
+      let progressBar = document.getElementById("progressBar");
+      let validationText = document.getElementById("validationText");
+      let progressBar2 = document.getElementById("progressBar2");
+      let progressContainer2 = document.getElementById("progressContainer2");
+      let winText = document.getElementById("winText");
+      let successMessage = document.getElementById("successMessage");
+      let shareProgressContainer = document.getElementById("shareProgressContainer");
+      let rotatingRing = document.getElementById("rotatingRing");
+      let whatsappBtn = document.getElementById("whatsappBtn");
+      let buyLink = document.getElementById("buyLink");
+      let orSeparator = document.getElementById("orSeparator");
+
+      let width = 0;
+      let width2 = 0;
+      let messages = ["Initializing...", "Checking eligibility...", "Verifying network...", "Finalizing...", "Success!"];
+      let step = 0;
+
+      let interval = setInterval(() => {
+        if (width >= 100) {
+          clearInterval(interval);
+          progressContainer2.classList.remove("hidden");
+          winText.classList.remove("hidden");
+          startSecondProgress();
+        } else {
+          width += 25;
+          progressBar.style.width = width + "%";
+          progressBar.textContent = width + "%";
+          validationText.textContent = messages[step++];
+        }
+      }, 1500);
+
+      function startSecondProgress() {
+        let interval2 = setInterval(() => {
+          if (width2 >= 100) {
+            clearInterval(interval2);
+            successMessage.classList.remove("hidden");
+            shareProgressContainer.classList.remove("hidden");
+            rotatingRing.classList.remove("hidden");
+            whatsappBtn.classList.remove("hidden");
+            orSeparator.classList.remove("hidden");
+            buyLink.classList.remove("hidden");
+          } else {
+            width2 += 10;
+            progressBar2.style.width = width2 + "%";
+            progressBar2.textContent = width2 + "%";
+          }
+        }, 2000);
+      }
+    }
+
+    updateProgress();
+  </script>
 </body>
 </html>
